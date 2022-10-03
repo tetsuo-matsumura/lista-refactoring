@@ -5,10 +5,12 @@ let logs = JSON.parse(fs.readFileSync('workflow_steps.log'))
 let workflowsCompletos = 0
 
 const parseLogs = () => {
-  let map = {}
+  let map = {} // inicializa um objeto vazio
   logs.map(log => {
+    // se não tiver uma chave "process_name", inicializa ela dentro do objeto com o valor de {}
     if (!map[log.process_name]) map[log.process_name] = {}
     if(log.step_name == 'COMPLETE') workflowsCompletos++ // faz a contagem
+    // adiciona a chave do nome do step dentro da chave do nome do processo e adiciona o timestamp como valor
     map[log.process_name][log.step_name] = log.step_init_timestamp
   })
 
