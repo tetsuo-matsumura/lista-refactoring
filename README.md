@@ -30,3 +30,7 @@ As regras de validação são:
 - Não existe nenhum Workflow sem Steps:
 - Todo Workflow tem timestamps sequenciais por Step (ex: não existe `DOING` com timestamp antes de `WAITING`)
 - Não existe Workflow com Steps faltantes (e: somente `DOING` ou somente `WAITING` E `COMPLETE`)
+
+Caso o log esteja não sem conformidade, retorne um erro que encerra a execução do script.
+
+> Bonus: continue a execução do script, ignorando os Workflows inconsistentes e fazendo um novo output discriminando-os.
